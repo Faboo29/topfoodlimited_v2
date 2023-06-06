@@ -1,3 +1,5 @@
+@import './variables';
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -79,6 +81,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   max-width: 100vw;
@@ -104,4 +110,19 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.container {
+  max-width: 1680px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $largeTablet) {
+    width: 90%;
+  }
+}
+
+h2.title {
+  font-family: $kumbh;
+  font-weight: 300;
+  text-transform: uppercase;
 }

@@ -1,0 +1,121 @@
+@import '../../../styles/index.scss';
+
+.staffSection {
+  margin: 6em 0 2em;
+
+  .staff-list-container {
+    display: flex;
+  }
+
+  .staffList,
+  .staff-description {
+    width: 100%;
+
+    @include custom-min-media($largeTablet) {
+      width: 50%;
+    }
+
+    padding: 0;
+    &__item {
+      position: relative;
+      background: $whiteGreen;
+      margin: 0 0 2em;
+      box-sizing: border-box;
+      border-radius: 200px 0 0 200px;
+      height: 124px;
+      z-index: 1;
+      color: black;
+      cursor: pointer;
+      @include flexbox();
+      @include align-items(center);
+      transform: translateX(1em);
+      transition: all 0.3s ease;
+
+      &:after {
+        position: absolute;
+        content: '';
+        right: -62px;
+        top: 0;
+        width: 124px;
+        height: 124px;
+        background: #2a3f30;
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      &:hover {
+        transform: translateX(0);
+      }
+
+      .image {
+        padding: 0.8em;
+        img {
+          vertical-align: top;
+          width: 100%;
+          max-width: 100px;
+        }
+      }
+
+      &.active {
+        background: rgb(65, 118, 78);
+        background: linear-gradient(
+          120deg,
+          rgba(65, 118, 78, 1) 0%,
+          rgba(42, 63, 48, 1) 80%
+        );
+        color: white;
+        transform: translateX(0);
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      @include flexbox();
+      width: 100%;
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      &__item {
+        height: auto;
+        padding: 1em 2em;
+        border-radius: 0;
+        margin: 0;
+        min-width: 220px;
+
+        &:after {
+          display: none;
+        }
+
+        .image {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .staff-description {
+    background: $whiteGreen;
+    padding: 4em 2em;
+    font-size: 1.2em;
+    padding-left: 124px;
+
+    @media screen and (max-width: 992px) {
+      padding: 2em;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 1.4rem;
+    }
+
+    .content {
+      line-height: 1.6rem;
+    }
+  }
+}

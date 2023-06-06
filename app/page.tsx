@@ -1,95 +1,51 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { initializeApollo } from '@/apollo';
+import { GET_HOME } from './query';
+import HomeHero from './components/modules/HomeHero';
+import styles from './page.module.scss';
+import clsx from 'clsx';
+import About from './components/modules/About';
+import Advantages from './components/modules/Advantages';
+import Staff from './components/modules/Staff';
+import { IHomeContent } from '@/types';
+import Main from './components/modules/Main';
 
-export default function Home() {
+const fetchHomeData = async (): Promise<IHomeContent | null> => {
+  const apolloClient = initializeApollo();
+  try {
+    const { data } = await apolloClient.query({
+      query: GET_HOME
+    });
+
+    return {
+      hero: data.heroCollection.items[0],
+      about: data.aboutCollection.items[0],
+      customers: data.customersCollection.items,
+      customerSection: data.customerSectionCollection.items[0],
+      advantages: data.advantagesCollection.items[0],
+      staffSection: data.staffSectionCollection.items[0],
+      staffs: data.staffCollection.items
+    };
+  } catch (error) {
+    console.error('fetchHomeData error: ', error);
+    return null;
+  }
+};
+
+export default async function Home() {
+  const content = await fetchHomeData();
+
+  if (!content) {
+    return null;
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <Main animationDuration={content.hero.animationDuration}>
+      <HomeHero content={content.hero} />
+      <div className={clsx(styles.primary, styles.loaded)}>
+        <About content={content.about} />
+        <Advantages content={content.advantages} />
+        <Staff content={content.staffSection} staffs={content.staffs} />
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </Main>
+  );
 }

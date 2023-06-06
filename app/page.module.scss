@@ -1,0 +1,6 @@
+.primary {
+  display: none;
+  &.loaded {
+    display: block;
+  }
+}

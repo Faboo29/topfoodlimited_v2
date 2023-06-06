@@ -1,0 +1,51 @@
+@import '../../../styles//index.scss';
+
+.about {
+  position: relative;
+  padding: 10em 0;
+  display: flex;
+  .circleBackground {
+    position: absolute;
+    left: -400px;
+    top: -600px;
+    transition: 0.2s all linear;
+    width: 1600px;
+    height: 1600px;
+    z-index: -1;
+    opacity: 0.05;
+    svg {
+      width: 100%;
+    }
+  }
+  .aboutContent {
+    padding: 2em;
+    width: 100%;
+    margin: auto 0;
+
+    @include custom-min-media($largeTablet) {
+      width: 40%;
+    }
+
+    h2 {
+      color: $greenOne;
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 1.4em 0;
+    }
+  }
+
+  .aboutImage {
+    width: 100%;
+
+    @include custom-min-media($largeTablet) {
+      width: 60%;
+    }
+
+    img {
+      width: 120%;
+    }
+  }
+}
