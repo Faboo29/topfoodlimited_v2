@@ -7,11 +7,7 @@ interface ICircleProps {
   };
 }
 
-const Circle = ({
-  fill = '#42784f',
-  scrollSettings,
-  classNames
-}: ICircleProps) => {
+const Circle = ({ fill = '#42784f', scrollSettings, classNames }: ICircleProps) => {
   return (
     <svg
       version="1.1"
