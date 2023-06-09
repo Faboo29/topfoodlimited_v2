@@ -34,6 +34,7 @@
     padding: 2em;
     width: 100%;
     margin: auto 0;
+    color: black;
 
     @include custom-min-media($tablet) {
       width: 40%;
