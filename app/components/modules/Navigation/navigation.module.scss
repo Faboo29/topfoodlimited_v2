@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import "../../../styles/index.scss";
 
 #navMain {
   background: transparent;
@@ -110,7 +110,28 @@
       box-sizing: border-box;
       transform: translateX(100%);
       transition: all 0.4s cubic-bezier(0, 1.01, 0.67, 1);
-      overflow: hidden;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        border-radius: 20px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f3f6f4;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #838d85;
+        border-radius: 20px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgb(151, 151, 151);
+      }
 
       @media screen and (max-width: 768px) {
         width: 70vw;
@@ -120,6 +141,7 @@
     .content {
       position: absolute;
       left: 0;
+      width: 100%;
     }
 
     .border-circle {
@@ -146,16 +168,24 @@
       left: 0;
 
       &__item {
-        margin: 0 2em;
+        margin: 0 0 2rem 1rem;
         opacity: 0;
         transform: translateX(100px);
 
         a {
           color: rgb(5, 24, 5);
+          padding: 0.4rem 2rem;
           font-size: 1.4em;
           letter-spacing: 0.4px;
           font-weight: 400;
-          transition: all ease-out;
+          transition: all 0.6s ease;
+          background-color: #efefef;
+          border-radius: 20px;
+
+          &:hover {
+            background-color: $greenOne;
+            color: white;
+          }
         }
       }
     }

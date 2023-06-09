@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import BorderCircle from '../../common/icons/BorderCircle';
 import styles from './navigation.module.scss';
 import { navigationItems } from '@/app/utils';
+import { kumbh } from '@/app/utils/fonts';
 
 const Navigation = () => {
   const [active, setActive] = useState(false);
@@ -25,7 +26,7 @@ const Navigation = () => {
             <div className={styles.navItems}>
               {navigationItems.map((item, index) => (
                 <div className={styles.navItems__item} key={`nav_${index}`}>
-                  <a href={`#${item.anchor}`} onClick={() => setActive(false)}>
+                  <a className={kumbh.className} href={`#${item.anchor}`} onClick={() => setActive(false)}>
                     {item.title}
                   </a>
                 </div>

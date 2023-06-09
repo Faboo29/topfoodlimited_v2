@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import "../../../styles/index.scss";
 
 .hero-inner {
   display: flex;
@@ -37,7 +37,7 @@
   &__background {
     width: 100%;
     height: 100%;
-    background: url('/assets/hero-left-image.jpg') no-repeat left bottom;
+    background: url("/assets/hero-left-image.jpg") no-repeat left bottom;
   }
 }
 
@@ -134,7 +134,7 @@
 
       span.top {
         position: relative;
-        font-family: $kumbh;
+        font-weight: 200;
         left: -2em;
         opacity: 0;
         animation: slide-right 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 2.5s both;
@@ -145,7 +145,7 @@
       }
 
       span.bottom {
-        font-family: $kumbh;
+        font-weight: 700;
         display: block;
         font-weight: 700;
         color: white;

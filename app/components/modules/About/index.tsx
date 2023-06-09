@@ -3,6 +3,7 @@ import Circle from '../../common/icons/Circle';
 import styles from './about.module.scss';
 import CustomerSection from './Customers';
 import clsx from 'clsx';
+import { kumbh } from '@/app/utils/fonts';
 
 type AboutProps = {
   content: IAbout;
@@ -18,7 +19,7 @@ const About = ({ content, customers, customerSection }: AboutProps) => {
           <Circle classNames={[]} />
         </div>
         <div className={styles.aboutContent}>
-          <h2>{content.title}</h2>
+          <h2 className={kumbh.className}>{content.title}</h2>
 
           {content.aboutContent.json.content.map((p: any, i: number) => (
             <p key={i}>{p.content[0].value}</p>

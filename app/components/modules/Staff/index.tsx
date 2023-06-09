@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from './staff.module.scss';
 import { IStaff, IStaffSection } from '@/types';
 import clsx from 'clsx';
+import { kumbh } from '@/app/utils/fonts';
 
 type StaffProps = {
   content: IStaffSection;
@@ -17,7 +18,7 @@ const Staff = ({ content, staffs }: StaffProps) => {
   return (
     <section id="team" className={styles.staffSection}>
       <div className="container">
-        <h2>{content.title}</h2>
+        <h2 className={kumbh.className}>{content.title}</h2>
         <div className={styles['staff-list-container']}>
           <div className={styles['staff-list']}>
             {sortedStaffList.map((staff) => {

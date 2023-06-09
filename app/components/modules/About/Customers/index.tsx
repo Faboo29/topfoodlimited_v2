@@ -10,6 +10,7 @@ import Circle from '@/app/components/common/icons/Circle';
 import { useAppContext } from '@/app/providers/AppContext';
 import Modal from '@/app/components/common/modal';
 import CustomerModal from './CustomerModal';
+import { kumbh } from '@/app/utils/fonts';
 
 interface ICustomerSectionProps {
   customers: ICustomer[];
@@ -38,7 +39,7 @@ const CustomerSection = ({ customers, customerSection }: ICustomerSectionProps) 
       <div className={styles['title-col']}>
         <div className={styles.title} ref={titleRef}>
           <Circle classNames={[styles.tfCircle]} />
-          <h2>{customerSection.title}</h2>
+          <h2 className={kumbh.className}>{customerSection.title}</h2>
         </div>
       </div>
       <div className={styles['customers-col']}>

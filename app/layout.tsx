@@ -4,14 +4,8 @@ import Providers from './Providers';
 import Navigation from './components/modules/Navigation';
 import { APP_LOADED_COOKIE, SCROLL_DISABLED_CLASS } from './constants';
 import Footer from './components/modules/Footer';
-import { Roboto } from 'next/font/google';
 import './styles/global.scss';
-
-const roboto = Roboto({
-  weight: ['300', '400', '700'],
-  subsets: ['latin'],
-  display: 'swap'
-});
+import { roboto } from './utils/fonts';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const hasAnimated = cookies().get(APP_LOADED_COOKIE) != undefined;

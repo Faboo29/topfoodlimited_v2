@@ -5,6 +5,8 @@ import Circles from '../../common/icons/Circles';
 import { useRef } from 'react';
 import { useHeroAnimation } from './useHeroAnimation';
 import styles from './homeHero.module.scss';
+import clsx from 'clsx';
+import { kumbh } from '@/app/utils/fonts';
 
 type HomeHeroProps = {
   content: IHero;
@@ -33,7 +35,8 @@ const HomeHero = ({ content }: HomeHeroProps) => {
             </div>
             <div className={styles.title}>
               <h1>
-                <span className={styles.top}>{titleTop} </span> <span className={styles.bottom}>{titleBottom}</span>
+                <span className={clsx(kumbh.className, styles.top)}>{titleTop} </span>{' '}
+                <span className={styles.bottom}>{titleBottom}</span>
               </h1>
             </div>
           </div>

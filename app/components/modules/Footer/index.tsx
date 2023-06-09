@@ -1,12 +1,13 @@
 import { navigationItems } from '@/app/utils';
 import styles from './footer.module.scss';
 import Circles from '../../common/icons/Circles';
+import { kumbh } from '@/app/utils/fonts';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <h2>Site map</h2>
+        <h2 className={kumbh.className}>Site map</h2>
         <ul className={styles['site-map']}>
           {navigationItems.map((nav, index) => (
             <li key={`site-map-${index}`}>

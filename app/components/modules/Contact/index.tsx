@@ -3,6 +3,7 @@ import styles from './contact.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { renderNode } from '@/app/utils';
+import { kumbh } from '@/app/utils/fonts';
 
 type ContactProps = {
   content: IContact;
@@ -16,7 +17,7 @@ const Contact = ({ content }: ContactProps) => {
         <div className="logo">
           <Image src="/assets/topfood_logo.png" width={200} height={200} alt="contact topfood logo" />
         </div>
-        <h2>{content.title}</h2>
+        <h2 className={kumbh.className}>{content.title}</h2>
         {content.address.json.content && (
           <div className={styles.address}>{renderNode(content.address.json.content[0])}</div>
         )}
