@@ -2,7 +2,7 @@
 
 .contact-section {
   display: flex;
-  background: url('/assets/contact-background.jpg') no-repeat center;
+  background: url('/assets/contact-background.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
 }
@@ -13,9 +13,8 @@
   height: 100%;
   left: 0;
   top: 0;
-  animation: gradient s ease infinite;
+  animation: gradient 8s ease infinite;
   background: linear-gradient(45deg, rgba(203, 226, 213, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
-
   z-index: 0;
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;

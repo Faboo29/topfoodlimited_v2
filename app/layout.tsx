@@ -2,10 +2,10 @@ import { cookies } from 'next/headers';
 import clsx from 'clsx';
 import Providers from './Providers';
 import Navigation from './components/modules/Navigation';
-import './styles/global.scss';
-import { Roboto } from 'next/font/google';
 import { APP_LOADED_COOKIE, SCROLL_DISABLED_CLASS } from './constants';
 import Footer from './components/modules/Footer';
+import { Roboto } from 'next/font/google';
+import './styles/global.scss';
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
