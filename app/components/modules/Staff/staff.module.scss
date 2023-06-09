@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import "../../../styles/index.scss";
 
 .staffSection {
   padding: 6rem 2rem 2rem;
@@ -34,7 +34,7 @@
 
       &:after {
         position: absolute;
-        content: '';
+        content: "";
         right: -62px;
         top: 0;
         width: 124px;
@@ -116,10 +116,12 @@
     .name {
       font-weight: bold;
       margin-bottom: 1.4rem;
+      color: black;
     }
 
     .content {
       line-height: 1.6rem;
+      color: black;
     }
   }
 }

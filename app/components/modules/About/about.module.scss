@@ -5,6 +5,7 @@
   padding: 6rem 0 10rem;
   display: flex;
   flex-wrap: wrap;
+  background: white;
 
   @include custom-min-media($largeTablet) {
     padding: 10rem 0;
