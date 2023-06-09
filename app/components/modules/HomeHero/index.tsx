@@ -21,10 +21,7 @@ const HomeHero = ({ content }: HomeHeroProps) => {
   return (
     <section>
       <div className={`${styles['hero-inner']}`} ref={heroInner}>
-        <div
-          className={styles['animation-mask']}
-          data-animation={'animation-init'}
-        ></div>
+        <div className={styles['animation-mask']} data-animation={'animation-init'}></div>
         <div className={styles['hero-left']}>
           <div className={styles['hero-left__background']} />
           <div className={styles['image-mask']} data-animation="mask"></div>
@@ -36,8 +33,7 @@ const HomeHero = ({ content }: HomeHeroProps) => {
             </div>
             <div className={styles.title}>
               <h1>
-                <span className={styles.top}>{titleTop} </span>{' '}
-                <span className={styles.bottom}>{titleBottom}</span>
+                <span className={styles.top}>{titleTop} </span> <span className={styles.bottom}>{titleBottom}</span>
               </h1>
             </div>
           </div>

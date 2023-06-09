@@ -6,8 +6,16 @@ export interface IHomeContent {
   advantages: IAdvantages;
   staffSection: IStaffSection;
   staffs: IStaff[];
+  contact: IContact;
 }
 
+export interface IContact {
+  sys: ISys;
+  title: string;
+  address: {
+    json: any;
+  };
+}
 export interface IAbout {
   title: string;
   aboutContent: IRichText;
@@ -74,6 +82,8 @@ export interface IImage {
   size: number;
   title: string;
   url: string;
+  width: number;
+  height: number;
 }
 
 export interface IRichText {

@@ -8,6 +8,7 @@ import Advantages from './components/modules/Advantages';
 import Staff from './components/modules/Staff';
 import { IHomeContent } from '@/types';
 import Main from './components/modules/Main';
+import Contact from './components/modules/Contact';
 
 const fetchHomeData = async (): Promise<IHomeContent | null> => {
   const apolloClient = initializeApollo();
@@ -23,7 +24,8 @@ const fetchHomeData = async (): Promise<IHomeContent | null> => {
       customerSection: data.customerSectionCollection.items[0],
       advantages: data.advantagesCollection.items[0],
       staffSection: data.staffSectionCollection.items[0],
-      staffs: data.staffCollection.items
+      staffs: data.staffCollection.items,
+      contact: data.contactCollection.items[0]
     };
   } catch (error) {
     console.error('fetchHomeData error: ', error);
@@ -42,9 +44,10 @@ export default async function Home() {
     <Main animationDuration={content.hero.animationDuration}>
       <HomeHero content={content.hero} />
       <div className={clsx(styles.primary, styles.loaded)}>
-        <About content={content.about} />
+        <About content={content.about} customers={content.customers} customerSection={content.customerSection} />
         <Advantages content={content.advantages} />
         <Staff content={content.staffSection} staffs={content.staffs} />
+        <Contact content={content.contact} />
       </div>
     </Main>
   );

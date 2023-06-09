@@ -1,13 +1,15 @@
 @import '../../../styles/index.scss';
 
 .staffSection {
-  margin: 6em 0 2em;
+  padding: 6rem 2rem 2rem;
+  background: white;
 
   .staff-list-container {
     display: flex;
+    flex-wrap: wrap;
   }
 
-  .staffList,
+  .staff-list,
   .staff-description {
     width: 100%;
 
@@ -15,7 +17,6 @@
       width: 50%;
     }
 
-    padding: 0;
     &__item {
       position: relative;
       background: $whiteGreen;
@@ -26,8 +27,8 @@
       z-index: 1;
       color: black;
       cursor: pointer;
-      @include flexbox();
-      @include align-items(center);
+      display: flex;
+      align-items: center;
       transform: translateX(1em);
       transition: all 0.3s ease;
 
@@ -56,13 +57,13 @@
         }
       }
 
+      .name {
+        font-weight: 700;
+      }
+
       &.active {
         background: rgb(65, 118, 78);
-        background: linear-gradient(
-          120deg,
-          rgba(65, 118, 78, 1) 0%,
-          rgba(42, 63, 48, 1) 80%
-        );
+        background: linear-gradient(120deg, rgba(65, 118, 78, 1) 0%, rgba(42, 63, 48, 1) 80%);
         color: white;
         transform: translateX(0);
 
@@ -73,7 +74,7 @@
     }
 
     @media screen and (max-width: 992px) {
-      @include flexbox();
+      display: flex;
       width: 100%;
       overflow-x: scroll;
 
@@ -84,9 +85,10 @@
       &__item {
         height: auto;
         padding: 1em 2em;
-        border-radius: 0;
+        border-radius: 0.4rem;
         margin: 0;
         min-width: 220px;
+        transform: translateX(0);
 
         &:after {
           display: none;
@@ -107,6 +109,8 @@
 
     @media screen and (max-width: 992px) {
       padding: 2em;
+      border: 1px solid $greenOne;
+      border-radius: 0.4rem;
     }
 
     .name {

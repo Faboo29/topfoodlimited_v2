@@ -53,8 +53,7 @@
     }
   }
 
-  // After page load
-  &.loaded {
+  :global(.app-loaded) & {
     .navButton {
       transition: all 0.4s ease-in;
       svg.menuIcon {
@@ -71,9 +70,7 @@
         }
       }
     }
-  }
 
-  &.loaded {
     .navItems {
       &__item {
         opacity: 0;
@@ -147,10 +144,12 @@
       position: absolute;
       top: 6em;
       left: 0;
+
       &__item {
         margin: 0 2em;
         opacity: 0;
         transform: translateX(100px);
+
         a {
           color: rgb(5, 24, 5);
           font-size: 1.4em;
@@ -163,20 +162,24 @@
 
     &.active {
       display: block;
+      opacity: 1;
 
-      &.visible {
-        opacity: 1;
-
-        .sidenavWrapper__inner {
-          transform: translate(0, 0);
+      .navItems {
+        &__item {
+          opacity: 1;
+          transform: translateX(0);
         }
+      }
 
-        .border-circle {
-          circle {
-            transform: translateX(0);
-            opacity: 0.2;
-            stroke-dashoffset: 0;
-          }
+      .sidenavWrapper__inner {
+        transform: translate(0, 0);
+      }
+
+      .border-circle {
+        circle {
+          transform: translateX(0);
+          opacity: 0.2;
+          stroke-dashoffset: 0;
         }
       }
     }

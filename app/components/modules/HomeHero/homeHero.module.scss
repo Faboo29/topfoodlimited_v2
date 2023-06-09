@@ -56,15 +56,15 @@
 .hero-right {
   position: relative;
   display: flex;
-  width: 60%;
+  width: 100%;
   text-align: center;
   background: rgb(243, 246, 244);
-  background: linear-gradient(
-    129deg,
-    rgba(243, 246, 244, 1) 0%,
-    rgba(109, 148, 128, 1) 100%
-  );
+  background: linear-gradient(129deg, rgba(243, 246, 244, 1) 0%, rgba(109, 148, 128, 1) 100%);
   z-index: 1;
+
+  @include custom-min-media($largeTablet) {
+    width: 60%;
+  }
 
   &__inner {
     margin: auto;
@@ -134,10 +134,10 @@
 
       span.top {
         position: relative;
+        font-family: $kumbh;
         left: -2em;
         opacity: 0;
-        animation: slide-right 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 2.5s
-          both;
+        animation: slide-right 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 2.5s both;
 
         @media screen and (max-width: 768px) {
           left: 0;
@@ -145,6 +145,7 @@
       }
 
       span.bottom {
+        font-family: $kumbh;
         display: block;
         font-weight: 700;
         color: white;

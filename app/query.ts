@@ -81,5 +81,16 @@ export const GET_HOME = gql`
         }
       }
     }
+    contactCollection {
+      items {
+        sys {
+          id
+        }
+        title
+        address {
+          json
+        }
+      }
+    }
   }
 `;

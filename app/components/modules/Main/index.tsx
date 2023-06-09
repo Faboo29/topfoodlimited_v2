@@ -1,8 +1,9 @@
 'use client';
 
-import { APP_LOADED_STORAGE_KEY, HERO_ANIMATION_DURATION, SCROLL_DISABLED_CLASS } from '@/app/constants';
+import { APP_LOADED_COOKIE, HERO_ANIMATION_DURATION, SCROLL_DISABLED_CLASS } from '@/app/constants';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 type MainProps = {
   children: React.ReactNode;
@@ -13,19 +14,14 @@ const Main = ({ children }: MainProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const hasAnimated = window.localStorage.getItem(APP_LOADED_STORAGE_KEY) != null;
-    const bodyElement = document.body;
-
-    if (hasAnimated) {
-      bodyElement.classList.remove(SCROLL_DISABLED_CLASS);
-    }
+    const hasAnimated = Cookies.get(APP_LOADED_COOKIE) != undefined;
 
     setTimeout(() => {
       if (!hasAnimated) {
-        window.localStorage.setItem(APP_LOADED_STORAGE_KEY, 'true');
+        Cookies.set(APP_LOADED_COOKIE, '1', { expires: 0.5 });
       }
 
-      bodyElement.classList.remove(SCROLL_DISABLED_CLASS);
+      document.body.classList.remove(SCROLL_DISABLED_CLASS);
       setLoaded(true);
     }, HERO_ANIMATION_DURATION);
   }, []);

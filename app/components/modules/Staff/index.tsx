@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './staff.module.scss';
 import { IStaff, IStaffSection } from '@/types';
+import clsx from 'clsx';
 
 type StaffProps = {
   content: IStaffSection;
@@ -14,18 +15,16 @@ const Staff = ({ content, staffs }: StaffProps) => {
   const [selectedStaff, setSelectedStaff] = useState(sortedStaffList[0]);
 
   return (
-    <section className={styles.staffSection}>
+    <section id="team" className={styles.staffSection}>
       <div className="container">
         <h2>{content.title}</h2>
         <div className={styles['staff-list-container']}>
-          <div className={styles.staffList}>
+          <div className={styles['staff-list']}>
             {sortedStaffList.map((staff) => {
               const active = staff.sys.id === selectedStaff.sys.id;
               return (
                 <div
-                  className={`${styles.staffList__item} ${
-                    active ? 'active' : ''
-                  }`}
+                  className={clsx(styles['staff-list__item'], active && styles.active)}
                   onClick={() => setSelectedStaff(staff)}
                   key={staff.sys.id}
                 >
@@ -34,8 +33,7 @@ const Staff = ({ content, staffs }: StaffProps) => {
                   </div>
                   <div className={styles.content}>
                     <div className={styles.name}>
-                      {staff.title} {staff.firstName}{' '}
-                      <span>{staff.name.toUpperCase()}</span>
+                      {staff.title} {staff.firstName} <span>{staff.name.toUpperCase()}</span>
                     </div>
                     <div className="job-title">{staff.jobTitle}</div>
                   </div>
@@ -46,15 +44,12 @@ const Staff = ({ content, staffs }: StaffProps) => {
           <div className={styles['staff-description']}>
             <div className="selected-staff-content">
               <div className={styles.name}>
-                {selectedStaff.title} {selectedStaff.firstName}{' '}
-                {selectedStaff.name.toUpperCase()}
+                {selectedStaff.title} {selectedStaff.firstName} {selectedStaff.name.toUpperCase()}
               </div>
               <div className={styles.content}>
-                {selectedStaff.description.json.content.map(
-                  (p: any, i: any) => (
-                    <p key={i}>{p.content[0].value}</p>
-                  )
-                )}
+                {selectedStaff.description.json.content.map((p: any, i: any) => (
+                  <p key={i}>{p.content[0].value}</p>
+                ))}
               </div>
             </div>
           </div>

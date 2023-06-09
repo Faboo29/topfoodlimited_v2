@@ -3,21 +3,15 @@
 import { Expo, gsap, Power0 } from 'gsap';
 import { useEffect } from 'react';
 
-const MOBILE_RESOLUTION = 560;
+const MOBILE_RESOLUTION = 1080;
 
 export const useHeroAnimation = (heroRef: React.RefObject<HTMLDivElement>) => {
   useEffect(() => {
     const [mask, heroRight, patterns, initMask] = [
       heroRef.current?.querySelector<HTMLDivElement>('[data-animation="mask"]'),
-      heroRef.current?.querySelector<HTMLDivElement>(
-        '[data-animation="hero-right"]'
-      ),
-      heroRef.current?.querySelector<HTMLDivElement>(
-        '[data-animation="patterns"]'
-      ),
-      heroRef.current?.querySelector<HTMLDivElement>(
-        '[data-animation="animation-init"]'
-      )
+      heroRef.current?.querySelector<HTMLDivElement>('[data-animation="hero-right"]'),
+      heroRef.current?.querySelector<HTMLDivElement>('[data-animation="patterns"]'),
+      heroRef.current?.querySelector<HTMLDivElement>('[data-animation="animation-init"]')
     ];
 
     if (initMask) {
@@ -48,9 +42,7 @@ const removeInitializationMask = (mask: HTMLDivElement) => {
 };
 
 const animateHeroRight = (heroRight: HTMLDivElement) => {
-  const { matches: isMobile } = window.matchMedia(
-    `(max-width: ${MOBILE_RESOLUTION}px)`
-  );
+  const { matches: isMobile } = window.matchMedia(`(max-width: ${MOBILE_RESOLUTION}px)`);
 
   gsap
     .fromTo(
@@ -98,9 +90,7 @@ const animatePatterns = (patterns: HTMLDivElement) => {
     return;
   }
 
-  gsap
-    .fromTo(center, { fill: 'white' }, { fill: '#427850', ease: Expo.easeOut })
-    .duration(3);
+  gsap.fromTo(center, { fill: 'white' }, { fill: '#427850', ease: Expo.easeOut }).duration(3);
 
   [top, bottom].forEach((element, index) => {
     const direction = index === 0 ? 1 : -1;

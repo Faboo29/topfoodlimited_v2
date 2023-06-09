@@ -1,16 +1,18 @@
 'use client';
 
-import { useApollo } from '@/apollo';
-import { ApolloProvider } from '@apollo/client';
+import ApolloProvider from './providers/ApolloProvider';
+import { AppContextProvider } from './providers/AppContext';
 
 type ProvidersProps = {
   children: React.ReactNode;
 };
 
 const Providers = ({ children }: ProvidersProps) => {
-  const client = useApollo();
-
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  return (
+    <ApolloProvider>
+      <AppContextProvider>{children}</AppContextProvider>
+    </ApolloProvider>
+  );
 };
 
 export default Providers;

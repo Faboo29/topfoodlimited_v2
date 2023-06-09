@@ -1,0 +1,56 @@
+.modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  /* Add transition properties for animation */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  animation: modal-enter 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s both;
+}
+
+.modal-close-button {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background: none;
+    border: none;
+    width: 26px;
+    height: 26px;
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.4);
+    }
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes modal-enter {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

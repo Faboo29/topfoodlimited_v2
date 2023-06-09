@@ -8,7 +8,7 @@ type AdvantagesProps = {
 
 const Advantages = ({ content }: AdvantagesProps) => {
   return (
-    <section className={styles.advantages}>
+    <section id="advantages" className={styles.advantages}>
       <div className={styles.circleBackground}>
         <Circle classNames={['']} />
       </div>
