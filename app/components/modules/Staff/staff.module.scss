@@ -89,6 +89,7 @@
         margin: 0;
         min-width: 220px;
         transform: translateX(0);
+        margin-right: 0.4rem;
 
         &:after {
           display: none;
@@ -108,7 +109,7 @@
     padding-left: 124px;
 
     @media screen and (max-width: 992px) {
-      padding: 2em;
+      padding: 1em;
       border: 1px solid $greenOne;
       border-radius: 0.4rem;
     }

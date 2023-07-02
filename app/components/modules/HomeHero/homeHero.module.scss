@@ -86,7 +86,11 @@
       transition: all 1.2s cubic-bezier(0.17, 0.67, 0.42, 1.2);
       display: block;
       margin: auto;
-      max-width: 400px;
+      max-height: 400px;
+
+      @media screen and (max-width: 1380px) {
+        max-height: 300px;
+      }
 
       @media screen and (max-width: 768px) {
         max-width: 260px;

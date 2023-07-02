@@ -9,18 +9,54 @@
   left: 0;
   box-shadow: none;
 
-  .navButton {
-    position: absolute;
-    top: 0;
-    right: 3em;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+  .nav-buttons {
     display: flex;
+    justify-content: space-between;
+    width: auto;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 1rem 3rem;
+    transition: all 0.4s ease;
+
+    @media screen and (max-width: 768px) {
+      padding: 0.6rem 1.5rem;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .contact {
+    margin-right: 2rem;
+    display: flex;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      margin: auto;
+    }
+  }
+
+  .navButton {
+    position: relative;
+    width: 70px;
+    height: auto;
+    cursor: pointer;
     z-index: 10;
 
     @media screen and (max-width: 768px) {
-      right: 1em;
+      width: 60px;
     }
 
     :global(.menu-icon) {
@@ -38,11 +74,11 @@
       :global(.menu-icon) {
         path {
           &:nth-child(1) {
-            transform: translate(-20px, 32px) rotate(45deg);
+            transform: translate(-20px, 70px) rotate(45deg);
           }
 
           &:nth-child(2) {
-            transform: translate(20px, -32px) rotate(-45deg);
+            transform: translate(20px, 0) rotate(-45deg);
           }
 
           &:nth-child(3) {
