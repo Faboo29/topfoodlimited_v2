@@ -10,6 +10,8 @@ import { IHomeContent } from '@/types';
 import Main from './components/modules/Main';
 import Contact from './components/modules/Contact';
 
+export const dynamic = 'force-dynamic';
+
 const fetchHomeData = async (): Promise<IHomeContent | null> => {
   const apolloClient = initializeApollo();
   try {

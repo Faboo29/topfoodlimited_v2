@@ -37,7 +37,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: from([errorLink, httpLink]),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 }
 
