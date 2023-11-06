@@ -1,17 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-
-interface Node {
-  nodeType: string;
-  data: Record<string, any>;
-  content: Node[];
-  marks?: Mark[];
-  value?: string;
-}
-
-interface Mark {
-  type: string;
-}
+import { Node } from '@/types';
 
 export const renderNode = (node: Node): React.ReactNode => {
   if (node.nodeType === 'text') {

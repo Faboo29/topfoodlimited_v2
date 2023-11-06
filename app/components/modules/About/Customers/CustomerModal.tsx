@@ -1,8 +1,9 @@
-import { ICustomer, IProductsCollection } from '@/types';
+import { ICustomer, IProductsCollection, Node } from '@/types';
 import { useQuery } from '@apollo/client';
 import { PRODUCTS_QUERY } from './query';
 import styles from '../about.module.scss';
 import Image from 'next/image';
+import { renderNode } from '@/app/utils';
 
 type CustomerModalProps = {
   customer: ICustomer;
@@ -37,9 +38,7 @@ const CustomerModal = ({ customer }: CustomerModalProps) => {
           </div>
           {customer.customerDescription && (
             <div className={styles.description}>
-              {customer.customerDescription.json.content.map((p: any, i: number) => (
-                <p key={`customer-description_${i}`}>{p.content[0].value}</p>
-              ))}
+              {customer.customerDescription?.json?.content && customer.customerDescription.json.content.map((node: Node) => renderNode(node))}
             </div>
           )}
           <div className={styles.products}>
@@ -53,7 +52,7 @@ const CustomerModal = ({ customer }: CustomerModalProps) => {
                       width={product.productImage.width}
                       height={product.productImage.height}
                       src={product.productImage.url}
-                      alt={product.title}
+                      alt={product.title ?? ""}
                       key={product.sys.id}
                     />
                   </div>

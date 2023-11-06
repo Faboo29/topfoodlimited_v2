@@ -14,7 +14,8 @@ const fetchHomeData = async (): Promise<IHomeContent | null> => {
   const apolloClient = initializeApollo();
   try {
     const { data } = await apolloClient.query({
-      query: GET_HOME
+      query: GET_HOME,
+      fetchPolicy: 'network-only'
     });
 
     return {

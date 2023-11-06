@@ -20,15 +20,13 @@ interface ICustomerSectionProps {
 const CustomerSection = ({ customers, customerSection }: ICustomerSectionProps) => {
   const appContext = useAppContext();
   const handleCustomerClick = (customer: ICustomer) => {
-    // setSelectedCustomer(customer);
     if (!appContext) {
       return;
     }
 
-    const { setSelectedCustomer, setModalActive, selectedCustomer } = appContext;
+    const { setSelectedCustomer, setModalActive } = appContext;
     setSelectedCustomer(customer);
     setModalActive(true);
-    console.log('selectedCustomer: ', selectedCustomer);
   };
 
   const [dragging, setDragging] = useState<boolean>(false);
